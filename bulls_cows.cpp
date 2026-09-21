@@ -9,7 +9,7 @@ using namespace std;
 
 //  Генерация секретного числа
 void generateSecret(char secret[5]) {
-    bool used[10] = {false};   // массив-флаги: использована ли цифра
+    bool used[10] = {false};   // массив использована ли цифра
     int i = 0;                 // текущая позиция в secret
 
     while (i < 4) {
@@ -74,12 +74,12 @@ void playGame() {
     // Cообщение о старте игры
     cout << "Start" << endl;
 
-    int attempts = 0;          // счётчик попыток
+    int popitki = 0;          // счётчик попыток
 
     while (true) {
         char dogad[5];        // буфер для ввода (с запасом)
 
-        attempts++;            // увеличиваем число попыток
+        popitki++;            // увеличиваем число попыток
 
         //Подсчёт быков и коров
         int bulls = countBulls(secret, dogad);
@@ -91,7 +91,7 @@ void playGame() {
 
         //Проверка победы
         if (bulls == 4) {
-            cout << "Win! Attempts: " << attempts << endl;
+            cout << "Win! Popitki: " << popitki << endl;
             break;             // выходим из цикла
         }
     }
