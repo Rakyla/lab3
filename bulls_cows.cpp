@@ -30,12 +30,12 @@ void generateSecret(char secret[5]) {
 }
 
 //  Подсчёт быков
-int countBulls(const char secret[5], const char guess[5]) {
+int countBulls(const char secret[5], const char dogad[5]) {
     int bulls = 0;
 
     for (int i = 0; i < 4; i++) {
         // Если символ на позиции i совпал — это бык
-        if (secret[i] == guess[i]) {
+        if (secret[i] == dogad[i]) {
             bulls++;
         }
     }
@@ -45,16 +45,16 @@ int countBulls(const char secret[5], const char guess[5]) {
 
 
 //  Подсчёт коров
-int countCows(const char secret[5], const char guess[5]) {
+int countCows(const char secret[5], const char dogad[5]) {
     int cows = 0;
 
     for (int i = 0; i < 4; i++) {
         // Если это бык — не считаем как корову
-        if (secret[i] == guess[i]) continue;
+        if (secret[i] == dogad[i]) continue;
 
-        // Ищем цифру guess[i] в секрете на любой позиции
+        // Ищем цифру dogad[i] в секрете на любой позиции
         for (int j = 0; j < 4; j++) {
-            if (guess[i] == secret[j]) {
+            if (dogad[i] == secret[j]) {
                 cows++;
                 break; // нашли одну корову — дальше искать не нужно
             }
@@ -77,13 +77,13 @@ void playGame() {
     int attempts = 0;          // счётчик попыток
 
     while (true) {
-        char guess[5];        // буфер для ввода (с запасом)
+        char dogad[5];        // буфер для ввода (с запасом)
 
         attempts++;            // увеличиваем число попыток
 
         //Подсчёт быков и коров
-        int bulls = countBulls(secret, guess);
-        int cows  = countCows(secret, guess);
+        int bulls = countBulls(secret, dogad);
+        int cows  = countCows(secret, dogad);
 
         // Вывод результата
         // B быков, K коров
