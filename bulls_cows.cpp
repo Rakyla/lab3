@@ -77,18 +77,7 @@ void playGame() {
     int attempts = 0;          // счётчик попыток
 
     while (true) {
-        char guess[10];        // буфер для ввода (с запасом)
-        cout << "> ";          // приглашение к вводу
-        cin >> guess;
-
-        // Длина ввода
-        int len = 0;
-        while (guess[len] != '\0') len++;   // считаем длину строки вручную
-
-        if (len != 4) {
-            cout << "4 sifri" << endl;
-            continue;          // возвращаемся к началу цикла
-        }
+        char guess[5];        // буфер для ввода (с запасом)
 
         attempts++;            // увеличиваем число попыток
 
